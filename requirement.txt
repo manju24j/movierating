@@ -1,0 +1,5 @@
+pyhton 2.7
+requests==2.10.0
+Django==1.9.6
+djangorestframework==3.5.3
+angularjs == 1.6
