@@ -1,0 +1,98 @@
+﻿<body ng-controller="loginController">
+        <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar">Bookmark List</span>
+                      <span class="icon-bar">Login</span>
+                      <span class="icon-bar">suggest</span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                  </div>
+              
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                      </div>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Bookmark List</a></li>
+                            <li><a href="#">suggest List</a></li>
+                            <li><a href="/#/login">Login</a></li>
+
+                            </ul>
+
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+              </nav>
+    <div class="container">
+        <div class="row">
+                <div class="col-md-6">
+                        <div class="loginform">
+                            <h4 class="text-center"> Login</h4>
+                                <form class="login-form" role="form" name="frmLogin" ng-submit="login()" novalidate>
+                                        <div class="form-group setTopSpace30 " ng-class="{ 'has-error' : frmLogin.login.$invalid && (frmLogin.login.$dirty || submitted)}">
+                                            <label for="UserName">User name</label>
+                                            <input type="email" ng-focus="message=''" name="login"  class="form-control"
+                                                   id="login" data-ng-model="loginData.userName" placeholder="User Name" required autofocus>
+                                            <p ng-show="frmLogin.login.$error.required && (frmLogin.login.$dirty || submitted)" class="help-block">User name is required</p>
+                                            <p ng-show="(frmLogin.login.$error.pattern && (frmLogin.login.$dirty || submitted)) || (frmLogin.login.$error.email && (frmLogin.login.$dirty || submitted))" class="help-block">Enter a valid e-mail</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : frmLogin.password.$invalid && (frmLogin.password.$dirty || submitted)}">
+                                            <label for="Password">Password</label>
+                                            <input type="password" ng-focus="message=''" name="password" class="form-control" data-ng-model="loginData.password" id="password1" ng-minlength="6" placeholder="Password" required>
+                                            <p ng-show="(frmLogin.password.$error.minlength)" class="help-block">6 characters minimum length.</p>
+                                        </div>
+                                        <button class="btn btn-info btnMy" type="submit">Login</button>
+                                    </form>
+                                </div>
+            </div>
+            <div class="col-md-6">
+                    <div class="loginform">
+                            <h4 class="text-center">Sign Up</h4>
+                                <form class="login-form" role="form" name="frmsighnup" ng-submit="signupfn()" novalidate>
+                                        <div class="form-group setTopSpace30 " ng-class="{ 'has-error' : frmsighnup.username.$invalid && (frmsighnup.username.$dirty || submitted)}">
+                                            <label for="UserName">User name</label>
+                                            <input type="email" ng-focus="message=''" name="username"  class="form-control"
+                                                   id="login1" data-ng-model="signup.username" placeholder="User name" required autofocus>
+                                            <p ng-show="frmsighnup.username.$error.required && (frmsighnup.username.$dirty || submitted)" class="help-block">User name is required</p>
+                                            <p ng-show="(frmsighnup.username.$error.pattern && (frmsighnup.username.$dirty || submitted)) || (frmsighnup.username.$error.email && (frmsighnup.username.$dirty || submitted))" class="help-block">Enter a valid e-mail</p>
+                                        </div>
+                                        <div class="form-group setTopSpace30 " ng-class="{ 'has-error' : frmsighnup.email.$invalid && (frmsighnup.email.$dirty || submitted)}">
+                                                <label for="UserName">Email</label>
+                                                <input type="email" ng-focus="message=''" name="email"  class="form-control"
+                                                       id="login2" data-ng-model="signup.email" placeholder="User name" required autofocus>
+                                                <p ng-show="frmsighnup.email.$error.required && (frmsighnup.email.$dirty || submitted)" class="help-block">User name is required</p>
+                                                <p ng-show="(frmsighnup.email.$error.pattern && (frmsighnup.email.$dirty || submitted)) || (frmsighnup.email.$error.email && (frmsighnup.login.$dirty || submitted))" class="help-block">Enter a valid e-mail</p>
+                                            </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : frmsighnup.spassword.$invalid && (frmsighnup.spassword.$dirty || submitted)}">
+                                            <label for="Password">Password</label>
+                                            <input type="password" ng-focus="message=''" name="spassword" class="form-control" data-ng-model="signup.password" id="password1" ng-minlength="6" placeholder="Password" required>
+                                        </div>
+                                        <p ng-show="(frmsighnup.spassword.$error.minlength)" class="help-block">6 characters minimum length</p>  
+
+                                        <div class="form-group" ng-class="{ 'has-error' : frmsighnup.cpassword.$invalid && (frmsighnup.password.$dirty || submitted)}">
+                                                <label for="Password">Confirm Password</label>
+                                                <input type="password" ng-focus="message=''" name="cpassword" class="form-control"  data-ng-model="Confirmpassword" id="password1" ng-minlength="6" data-password-verify="signup.password" placeholder="Password" required>
+                                            </div>
+                                            <p ng-show="(frmsighnup.cpassword.$error.passwordVerify)" class="help-block">Password do not match</p>  
+                                        <button class="btn btn-info btnMy" type="submit">Register</button>
+                                    </form>
+                                </div>
+            </div>
+        </div>
+    </div>
+    
+    </body>
+
+
+<style>
+.loginform{
+    border: 1px solid lightgray;
+    padding: 10px;
+}
+</style>
